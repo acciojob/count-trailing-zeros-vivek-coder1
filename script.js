@@ -1,19 +1,14 @@
 function trailingZeros(n) {
     let count = 0;
+    // Count how many times 5 is a factor in numbers up to n
     for (let i = 5; n / i >= 1; i *= 5) {
         count += Math.floor(n / i);
     }
     return count;
 }
 
-// Get input from user
-let input = prompt("Enter a non-negative integer:");
-let number = parseInt(input);
+// Take input from the user
+const num = parseInt(prompt("Enter a non-negative integer:"), 10);
 
-// Validate input
-if (isNaN(number) || number < 0) {
-    alert("Please enter a valid non-negative integer.");
-} else {
-    let result = trailingZeros(number);
-    alert("Number of trailing zeros in " + number + "! is: " + result);
-}
+// Show the result using alert
+alert(trailingZeros(num));
