@@ -1,11 +1,20 @@
 function trailingZeros(n) {
-    let count = 0;
-    while (n >= 5) {
-        n = Math.floor(n / 5);
-        count += n;
-    }
-    return count;
+  let count = 0;
+  for (let i = 5; n / i >= 1; i *= 5) {
+    count += Math.floor(n / i);
+  }
+  return count;
 }
 
-const input = parseInt(prompt("Enter a non-negative integer:"), 10);
-alert(trailingZeros(input));
+function getTrailingZeros() {
+  const input = prompt("Enter a non-negative integer:");
+  const number = parseInt(input);
+
+  if (isNaN(number) || number < 0 || number > 10000) {
+    alert("Please enter a valid number between 0 and 10000.");
+    return;
+  }
+
+  const result = trailingZeros(number);
+  alert(`Trailing zeros in ${number}! = ${result}`);
+}
