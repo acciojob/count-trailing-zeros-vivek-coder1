@@ -13,8 +13,10 @@ function getTrailingZeros() {
   if (isNaN(number) || number < 0 || number > 10000) {
     alert("Please enter a valid number between 0 and 10000.");
     return;
+	  
   }
 
   const result = trailingZeros(number);
   alert(`Trailing zeros in ${number}! = ${result}`);
 }
+
